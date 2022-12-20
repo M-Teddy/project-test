@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <%= simple_form_for(@car) do |f| %>
+    <%= f.input :brand, label:"Brand"  %>
+    <%= f.input :model, label:"Model" %>
+    <%= f.input :color, label:"color" %>
+    <%= f.input :price, label:"price" %>
+    <%= f.submit "Create Car", class: "btn-form"%>
+    <% end %>
+  </div>
+</div>

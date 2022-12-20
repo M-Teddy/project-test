@@ -1,0 +1,42 @@
+<br>
+<h2 class="text-center"><strong>🚀 Reservation good 🚀</strong></h2>
+<br>
+<div class="container">
+  <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">🤖 Récap:</th>
+          </tr>
+        </thead>
+          <tbody class="table-group-divider">
+          <tr>
+            <th scope="row">Nom:</th>
+            <td><%= @booking.car.model %></td>
+        </tr>
+          <tr>
+            <th scope="row">Start:</th>
+            <td><%= @booking.startdate %></td>
+          </tr>
+        <tr>
+            <th scope="row">End:</th>
+            <td><%= @booking.enddate %></td>
+        </tr>
+        <tr>
+            <th scope="row">Description:</th>
+            <td><%= @booking.car.color %></td>
+        </tr>
+        <tr>
+            <th scope="row">total TTC:</th>
+            <td colspan="2">$<%= (@booking.enddate - @booking.startdate).to_i * @booking.car.price %></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center">
+    <br>
+  <button type="button" class="btn btn-secondary btn-lg"><%= link_to 'Mes réservations', bookings_path%></button>
+ </div>
+  </div>
+</div>

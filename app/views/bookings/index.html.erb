@@ -1,0 +1,19 @@
+<div class="container-listing">
+  <h1>Réservations:</h1>
+  <div class="card-product">
+      <% @bookings.each do |booking| %>
+      <% if booking.user == current_user %>
+    <div class="d-flex card-booking">
+
+    <div class="card-product-info">
+      <h2><%= booking.car.model %>:</h2>
+      <%= booking.car.price %>
+      <br>
+      <p><strong>Date de début: <%= booking.startdate %></strong> | <strong>Date de fin: <%= booking.enddate %></strong></p>
+      <p><b>Total: $<%= (booking.enddate.to_date - booking.startdate.to_date).to_i * booking.car.price %></b></p>
+    </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>

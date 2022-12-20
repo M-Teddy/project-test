@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="cards">
+    <%if params[:query] == nil%>
+    <div class="card card-blue">
+      <%= link_to "Add car", new_car_path, class: "add-bot"%>
+      <img src="https://www.ouestfrance-auto.com/sites/default/files/voiture-miami.jpg" alt="" class="card__img card__img--full">
+    </div>
+      <% end %>
+      <% @cars.each do |car| %>
+    <div class="card card-blue">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div>
+              <img src="https://www.ouestfrance-auto.com/sites/default/files/voiture-miami.jpg" alt="" class="card__img card__img--full">
+
+            </div>
+          </div>
+          <div class="swiper-slide" id="descrip">
+              <h2>Description</h2>
+              <p><%= car.model %></p>
+              <p><%= car.price %>€/Jour</p>
+              <p><%= car.brand %>⭐️</p>
+          </div>
+        </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+      </div>
+      <div class="bottom-card">
+        <p><strong>
+            <%= link_to car_path(car), class:"card__link" do %>
+              <%= car.model %>
+            <% end %>
+            </strong></p>
+        <p>
+        <%= link_to edit_car_path(car) do %>
+        <i class="fa-solid fa-pen-to-square"></i>
+        <% end %>
+        </p>
+        <p>
+        <%= link_to car_path(car), data: { method: :delete, confirm: "Are you sure ?" }  do %>
+        <i class="fa-solid fa-trash"></i>
+        <% end %>
+        </p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+<script>
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  // direction: 'vertical',
+  loop: true,
+
+  // pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+</script>
