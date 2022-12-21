@@ -1,7 +1,7 @@
 <div class="container">
   <div class="cards">
     <%if params[:query] == nil%>
-    <div class="card card-blue">
+    <div class="card">
       <%= link_to "Add car", new_car_path, class: "add-bot"%>
       <img src="https://www.ouestfrance-auto.com/sites/default/files/voiture-miami.jpg" alt="" class="card__img card__img--full">
     </div>
@@ -16,9 +16,9 @@
 
             </div>
           </div>
-          <div class="swiper-slide" id="descrip">
+          <div class="swiper-slide" id="descrip" >
               <h2>Description</h2>
-              <p><%= car.model %></p>
+              <p class="car_model"><%= car.model %></p>
               <p><%= car.price %>€/Jour</p>
               <p><%= car.brand %>⭐️</p>
           </div>
@@ -67,4 +67,3 @@ const swiper = new Swiper('.swiper', {
     prevEl: '.swiper-button-prev',
   },
 });
-</script>
