@@ -11,6 +11,6 @@ puts 'Seed: Deleting existing records...'
 
 Car.destroy_all
 
-user = User.create!(email: "teddymuller@gmail.com", password: "password")
+# user = User.create!(email: "teddymuller@gmail.com", password: "password")
 
 puts 'Seed: Finished seeding!'
