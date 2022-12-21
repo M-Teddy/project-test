@@ -21,8 +21,12 @@
 
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+  <body>
+  <% unless controller.controller_name == "pages" %>
+  <%= render "shared/navbar" %>
+  <% end %>
+
+  <%= render "shared/flashes" %>
 
     <%= yield %>
   </body>
